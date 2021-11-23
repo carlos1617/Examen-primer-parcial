@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>  
+    <meta charset="utf-8" />
+    <title>Examen primer parcial</title>
+    <script>
+        function validacion(){
+var form = document.form;
+var fechainicial = document.getElementById("fechainicial").value;
+var fechafinal = document.getElementById("fechafinal").value;
+if (form.codigo.value==0){
+    alert("El campo codigo del vehículo se encuentra vacío");
+    form.codigo.value="";
+    form.codigo.focus();
+    return false;
+    }
+if (form.marca.value==0){
+    alert("El campo de la marca del vehículo se encuentra vacío");
+    form.titulo.value="";
+    form.titulo.focus();
+    return false;
+    }
+if (form.modelo.value==0){
+    alert("El campo modelo de vehículo se encuentra vacio");
+    form.autor.value="";
+    form.autor.focus();
+    return false;
+    }
+if (form.año.value==0){
+    alert("El campo año del vehículo se encuentra vacío");
+    form.editoria.value="";
+    form.editoria.focus();
+    return false;
+    }
+if (form.fechainicial.value==0){
+    alert("El campo de la fecha inicial del vehículo se encuentra vacío");
+    form.fechainicial.value="";
+    form.fecha.focus();
+    return false;
+    }
+if (form.fechafinal.value==0){
+    alert("El campo fecha final esta vacio");
+    form.fechafinal.value="";
+    form.fechafinal.focus();
+    return false;
+    }
+if(Date.parse(fechafinal) <= Date.parse(fechainicial)){
+   alert("El campo fecha final debe ser mayor al valor de fecha inicial");
+    form.fechafinal.value="";
+    form.fechafinal.focus();
+    return false;
+}
+    else  {
+    alert(`Formulario enviado exitosamente`); 
+    }
+}
+</script>
+</head>
+<body bgcolor="gray">                     
+           <form  action="#" method="POST" name="form" align="center" onsubmit="return validacion();">  
+                    <h1>Alquiler de vehículos</h1>    <br>       
+                        <label for=""> Codigo del vehículo</label>
+                        <br> 
+                        <input type="text" name="codigo" maxlength="5" required >
+                        <br> 
+                        <label for=""> Marca del vehículo</label>
+                        <br> 
+                        <input type="text" name="marca" maxlength="50"   required> 
+                        <br>                 
+                        <label for=""> Modelo del vehículo</label>
+                        <br> 
+                        <input type="text" name="modelo"  maxlength="30"  required>
+                        <br> 
+                        <label for="">Año</label>
+                        <br> 
+                        <input type="text" name="año" maxlength="4"  required>
+                        <br> 
+						<label for=""> Fecha inicial</label>
+                        <br> 
+                        <input type="date" name="fechainicial" id="fechainicial" required>
+                        <br> 
+				        <label for=""> Fecha final</label>
+                        <br> 
+                        <input type="date" name="fechafinal" id="fechafinal" required>
+                        <br> 
+                     <br>
+                    <button onclick="validacion();">
+                        Enviar</button>                                 
+                          </div>                                                
+            </form>  
+  </body>
+</html>
